@@ -7,7 +7,7 @@ import {
     Dimensions
 } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
-const { pheight, pwidth } = Dimensions.get('window')
+const { heightOfPhone, widthOfPhone } = Dimensions.get('window')
 
 class Category extends Component {
     render() {
@@ -17,7 +17,7 @@ class Category extends Component {
               <View style={{width: 40, padding : 5 }}>
                     <Icon name={this.props.iconName} size={30} color="grey" />
               </View>
-              <View style={{width: pwidth - 50 - 10, padding : 5, justifyContent: "flex-start" }}>
+              <View style={{width: widthOfPhone - 50 - 10, padding : 5, justifyContent: "flex-start" }}>
                   <View style={{flex: 1}}>
                       <Text style={{ fontSize: 12, fontWeight: '200'}}>{this.props.name1}</Text>
                   </View>
@@ -31,3 +31,4 @@ class Category extends Component {
     }
 }
 export default Category;
+
