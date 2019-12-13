@@ -24,7 +24,7 @@ export default createBottomTabNavigator({
   Timetable: {
     screen: Timetable,
     navigationOptions: {
-      tabBarLabel: 'Timetable',
+      tabBarLabel: 'Crowd Levels',
       tabBarIcon: ({ tintColor }) => (
         <Image source={require('./assets/timetableIcon.png')} style={{ height: 25, width: 25, tintColor: tintColor }} />
       )

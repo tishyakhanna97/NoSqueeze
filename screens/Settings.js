@@ -8,13 +8,12 @@ import {
   Platform,
   StatusBar,
   ScrollView,
-  TouchableHighlight,
-  Image,
   Dimensions,
   Alert,
   Button,
-  TouchableOpacity,
   Slider,
+  Clipboard,
+  TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Constants } from 'expo';
@@ -37,6 +36,13 @@ export class Settings extends Component {
       pointsLeft: 1,
     };
   }
+
+  readFromClipboard = async () => {
+    //To get the text from clipboard
+    const clipboardContent = await Clipboard.getString();   
+    this.setState({ clipboardContent }); 
+  };
+
 
   componentWillMount() {
     this.startHeaderHeight = 50;
@@ -82,12 +88,15 @@ export class Settings extends Component {
               }}>
               Paste your NusMods sharing link in the box below:
             </Text>
+            
 
             <View style={{ flex: 1, paddingHorizontal: 5 }}>
               <TextInput
                 underlineColorAndroid="transparent"
                 placeholder="NusMods sharing link"
                 placeholderTextColor="black"
+                onChangeText={(text) => this.setState({text})}
+              value={this.state.text}
                 style={{
                   height: 40,
                   borderColor: 'gray',
@@ -95,7 +104,22 @@ export class Settings extends Component {
                   paddingHorizontal: 5,
                 }}
               />
+              
+              <TouchableOpacity onPress=
+              {this.get_Text_From_Clipboard} 
+              activeOpacity={0.8} 
+              style={styles.button} >
+              <Text style={styles.TextStyle}> 
+              PASTE NUS MODS LINK </Text>
+              </TouchableOpacity>
+
+              <Text>{this.state.clipboardContent}</Text>
+        <Button
+          onPress={this.readFromClipboard}
+          title="Paste from Clipboard"
+        />
             </View>
+
 
             <Text
               style={{

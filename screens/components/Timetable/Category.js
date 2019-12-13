@@ -7,17 +7,21 @@ import {
     Dimensions
 } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
-const { heightOfPhone, widthOfPhone } = Dimensions.get('window')
+const { height, width } = Dimensions.get('window')
 
 class Category extends Component {
     render() {
         return (
-            <View style={{ flexDirection : 'row', alignItems : 'center', justifyContent : 'flex-start', height: 50, marginLeft: 5, marginRight: 5, borderWidth: 0.5, borderColor: '#dddddd' }}>
+            <View style={{ flexDirection : 'row', 
+            alignItems : 'center', 
+            justifyContent : 'flex-start', 
+            height: 50, marginLeft: 5, 
+            marginRight: 5, borderWidth: 0.5, borderColor: '#dddddd' }}>
             <View style={{ flex : 1, flexDirection : 'row'}}>
               <View style={{width: 40, padding : 5 }}>
                     <Icon name={this.props.iconName} size={30} color="grey" />
               </View>
-              <View style={{width: widthOfPhone - 50 - 10, padding : 5, justifyContent: "flex-start" }}>
+              <View style={{width: width - 60, padding : 5, justifyContent: "flex-start" }}>
                   <View style={{flex: 1}}>
                       <Text style={{ fontSize: 12, fontWeight: '200'}}>{this.props.name1}</Text>
                   </View>
